@@ -109,7 +109,8 @@ require_once __DIR__ . '/includes/header.php';
 
 <section class="card">
     <h2><?= e(__('Order Items')) ?></h2>
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
             <tr>
                 <th><?= e(__('Product')) ?></th>
@@ -135,6 +136,7 @@ require_once __DIR__ . '/includes/header.php';
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
 </section>
 
 <section class="card">

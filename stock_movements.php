@@ -90,7 +90,8 @@ require_once __DIR__ . '/includes/header.php';
 </section>
 
 <section class="card">
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
             <tr>
                 <th><?= e(__('ID')) ?></th>
@@ -138,6 +139,7 @@ require_once __DIR__ . '/includes/header.php';
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
     <div class="pagination">
         <?php if ($page > 1): ?>
             <a href="stock_movements.php?<?= e(movement_page_query(['page' => $page - 1])) ?>"><?= e(__('Prev')) ?></a>

@@ -157,7 +157,8 @@ require_once __DIR__ . '/includes/header.php';
 
 <section class="card">
     <h2><?= e(__('Customer List')) ?></h2>
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
             <tr>
                 <th><?= e(__('Name')) ?></th>
@@ -184,6 +185,7 @@ require_once __DIR__ . '/includes/header.php';
                         <td><?= e($row['address']) ?></td>
                         <td><?= e($row['remark']) ?></td>
                         <td>
+                            <a href="customer_view.php?id=<?= e((string) $row['id']) ?>" class="view-link"><?= e(__('View')) ?></a>
                             <a href="customers.php?id=<?= e((string) $row['id']) ?>"><?= e(__('Edit')) ?></a>
                             <form method="post" class="inline-form"
                                 onsubmit="return confirm('<?= e(__('Delete this customer?')) ?>')">
@@ -197,5 +199,6 @@ require_once __DIR__ . '/includes/header.php';
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
 </section>
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

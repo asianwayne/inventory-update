@@ -116,45 +116,53 @@ require_once __DIR__ . '/includes/header.php';
 </section>
 
 <section class="card">
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
-            <tr>
-                <th><?= e(__('GR No')) ?></th>
-                <th><?= e(__('PO No')) ?></th>
-                <th><?= e(__('Supplier')) ?></th>
-                <th><?= e(__('Status')) ?></th>
-                <th><?= e(__('Total Qty')) ?></th>
-                <th><?= e(__('Total Amount')) ?></th>
-                <th><?= e(__('Created By')) ?></th>
-                <th><?= e(__('Date')) ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($rows->num_rows === 0): ?>
-                <tr><td colspan="8"><?= e(__('No goods receipts yet.')) ?></td></tr>
-            <?php else: ?>
-                <?php while ($row = $rows->fetch_assoc()): ?>
-                    <tr>
-                        <td><?= e($row['gr_number']) ?></td>
-                        <td><a href="purchase_order_view.php?id=<?= e((string) $row['purchase_order_id']) ?>"><?= e($row['po_number']) ?></a></td>
-                        <td><?= e($row['supplier_name']) ?></td>
-                        <td><?= e(__($row['status'])) ?></td>
-                        <td><?= e((string) $row['total_qty']) ?></td>
-                        <td><?= e(format_money((float) $row['total_amount'])) ?></td>
-                        <td><?= e($row['creator_name']) ?></td>
-                        <td><?= e($row['created_at']) ?></td>
-                    </tr>
+                <tr>
+                    <th><?= e(__('GR No')) ?></th>
+                    <th><?= e(__('PO No')) ?></th>
+                    <th><?= e(__('Supplier')) ?></th>
+                    <th><?= e(__('Status')) ?></th>
+                    <th><?= e(__('Total Qty')) ?></th>
+                    <th><?= e(__('Total Amount')) ?></th>
+                    <th><?= e(__('Created By')) ?></th>
+                    <th><?= e(__('Date')) ?></th>
+                    <th><?= e(__('Action')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($rows->num_rows === 0): ?>
+                    <tr><td colspan="9"><?= e(__('No goods receipts yet.')) ?></td></tr>
+                <?php else: ?>
+                    <?php while ($row = $rows->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= e($row['gr_number']) ?></td>
+                            <td><a href="purchase_order_view.php?id=<?= e((string) $row['purchase_order_id']) ?>"><?= e($row['po_number']) ?></a></td>
+                            <td><?= e($row['supplier_name']) ?></td>
+                            <td><?= e(__($row['status'])) ?></td>
+                            <td><?= e((string) $row['total_qty']) ?></td>
+                            <td><?= e(format_money((float) $row['total_amount'])) ?></td>
+                            <td><?= e($row['creator_name']) ?></td>
+                            <td><?= e($row['created_at']) ?></td>
+                            <td>
+                                <a href="goods_receipt_view.php?id=<?= e((string) $row['id']) ?>" class="view-link"><?= e(__('View')) ?></a>
+                            </td>
+                        </tr>
                 <?php endwhile; ?>
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
     <div class="pagination">
         <?php if ($page > 1): ?>
+            <a href="goods_receipts.php?<?= e(gr_page_query(['page' => 1])) ?>"><?= e(__('First')) ?></a>
             <a href="goods_receipts.php?<?= e(gr_page_query(['page' => $page - 1])) ?>"><?= e(__('Prev')) ?></a>
         <?php endif; ?>
         <span><?= e(__('Page')) ?> <?= e((string) $page) ?> <?= e(__('of')) ?> <?= e((string) $totalPages) ?></span>
         <?php if ($page < $totalPages): ?>
             <a href="goods_receipts.php?<?= e(gr_page_query(['page' => $page + 1])) ?>"><?= e(__('Next')) ?></a>
+            <a href="goods_receipts.php?<?= e(gr_page_query(['page' => $totalPages])) ?>"><?= e(__('Last')) ?></a>
         <?php endif; ?>
     </div>
 </section>

@@ -429,4 +429,42 @@ return [
 
     // Layout
     'System' => '系统',
+
+    // Import
+    'Import Data' => '导入数据',
+    'Import Products' => '导入产品',
+    'Import Suppliers' => '导入供应商',
+    'Import Customers' => '导入客户',
+    'Download Template' => '下载模板',
+    'Select CSV File' => '选择 CSV 文件',
+    'Upload and Import' => '上传并导入',
+    'Imported %d records successfully.' => '成功导入 %d 条记录。',
+    '%d records failed.' => '%d 条记录失败。',
+    'Import Errors' => '导入错误',
+    'Instructions' => '操作说明',
+    'Download the template file first to see the required columns.' => '首先下载模板文件以查看所需列。',
+    'Do not change the order of columns in the template.' => '不要更改模板中的列顺序。',
+    'For products, if the category name doesn\'t exist, it will be created.' => '对于产品，如果类别名称不存在，则会自动创建。',
+    'SKU (for products) and Code (for suppliers/customers) must be unique.' => 'SKU（针对产品）和代码（针对供应商/客户）必须唯一。',
+    'Prices and quantities should be numbers.' => '价格和数量应为数字。',
+    'Make sure your CSV file matches the template structure.' => '确保您的 CSV 文件与模板结构匹配。',
+    'The following records could not be imported:' => '以下记录无法导入：',
+    'Row' => '行号',
+    'Info' => '信息 (SKU/代码)',
+    'Error' => '错误信息',
+    'Cleanup Data' => '清理数据',
+    'If you have imported garbled data or want to start over, you can delete all records for this module.' => '如果您导入了乱码数据或想重新开始，可以删除此模块的所有记录。',
+    'Delete All Products' => '删除所有产品',
+    'Delete All Suppliers' => '删除所有供应商',
+    'Delete All Customers' => '删除所有客户',
+    'All products cleared.' => '所有产品已清空。',
+    'All suppliers cleared.' => '所有供应商已清空。',
+    'All customers cleared.' => '所有客户已清空。',
+
+    // Global Search
+    'Search...' => '搜索...',
+    'Global Search' => '全局搜索',
+    'Search everything...' => '搜索所有项...',
+    'Search results for "%s"' => '"%s" 的搜索结果',
+    'No results found for "%s"' => '未找到 "%s" 的相关结果',
 ];

@@ -166,7 +166,14 @@ $items = $stmt->get_result();
 $title = page_title(__('Sales Order Detail'));
 require_once __DIR__ . '/includes/header.php';
 ?>
-<h1><?= e(__('Sales Order Detail')) ?></h1>
+<div class="view-header">
+    <h1><?= e(__('Sales Order Detail')) ?></h1>
+    <div class="header-actions">
+        <a href="sales_orders.php" class="link-btn secondary-btn">
+            <?= e(__('Back to List')) ?>
+        </a>
+    </div>
+</div>
 <section class="card">
     <p><strong><?= e(__('SO No')) ?>:</strong> <?= e($order['so_number']) ?></p>
     <p><strong><?= e(__('Status')) ?>:</strong> <?= e(__($order['status'])) ?></p>
@@ -201,7 +208,8 @@ require_once __DIR__ . '/includes/header.php';
 
 <section class="card">
     <h2><?= e(__('Items')) ?></h2>
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
             <tr>
                 <th><?= e(__('Product')) ?></th>
@@ -227,6 +235,7 @@ require_once __DIR__ . '/includes/header.php';
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
 </section>
 
 <section class="card">

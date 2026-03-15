@@ -166,7 +166,8 @@ require_once __DIR__ . '/includes/header.php';
     <?php if ($recentReceipts->num_rows === 0): ?>
         <p><?= e(__('No purchase receipts yet.')) ?></p>
     <?php else: ?>
-        <table>
+        <div class="table-responsive">
+            <table>
             <thead>
                 <tr>
                     <th><?= e(__('ID')) ?></th>
@@ -196,6 +197,7 @@ require_once __DIR__ . '/includes/header.php';
                 <?php endwhile; ?>
             </tbody>
         </table>
+        </div>
     <?php endif; ?>
 </section>
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

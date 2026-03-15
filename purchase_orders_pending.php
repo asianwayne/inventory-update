@@ -40,7 +40,8 @@ require_once __DIR__ . '/includes/header.php';
 
 <section class="card">
     <h2><?= e(__('Unapproved Purchase Orders')) ?></h2>
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
             <tr>
                 <th><?= e(__('PO No')) ?></th>
@@ -70,6 +71,7 @@ require_once __DIR__ . '/includes/header.php';
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
     <div class="pagination">
         <?php if ($page > 1): ?>
             <a href="purchase_orders_pending.php?page=<?= e((string) ($page - 1)) ?>"><?= e(__('Prev')) ?></a>

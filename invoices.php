@@ -147,7 +147,8 @@ require_once __DIR__ . '/includes/header.php';
 </section>
 
 <section class="card">
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
             <tr>
                 <th><?= e(__('Invoice No')) ?></th>
@@ -180,6 +181,7 @@ require_once __DIR__ . '/includes/header.php';
                         <td><?= e($row['issue_date']) ?></td>
                         <td><?= e($row['due_date']) ?></td>
                         <td>
+                            <a href="invoice_view.php?id=<?= e((string) $row['id']) ?>" class="view-link"><?= e(__('View')) ?></a>
                             <?php if (!in_array((string) $row['status'], ['paid', 'void'], true)): ?>
                                 <form method="post" class="inline-form">
                                     <?= csrf_input() ?>
@@ -196,13 +198,16 @@ require_once __DIR__ . '/includes/header.php';
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
     <div class="pagination">
         <?php if ($page > 1): ?>
+            <a href="invoices.php?<?= e(invoice_page_query(['page' => 1])) ?>"><?= e(__('First')) ?></a>
             <a href="invoices.php?<?= e(invoice_page_query(['page' => $page - 1])) ?>"><?= e(__('Prev')) ?></a>
         <?php endif; ?>
         <span><?= e(__('Page')) ?> <?= e((string) $page) ?> <?= e(__('of')) ?> <?= e((string) $totalPages) ?></span>
         <?php if ($page < $totalPages): ?>
             <a href="invoices.php?<?= e(invoice_page_query(['page' => $page + 1])) ?>"><?= e(__('Next')) ?></a>
+            <a href="invoices.php?<?= e(invoice_page_query(['page' => $totalPages])) ?>"><?= e(__('Last')) ?></a>
         <?php endif; ?>
     </div>
 </section>

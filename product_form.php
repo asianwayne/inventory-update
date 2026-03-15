@@ -332,7 +332,13 @@ require_once __DIR__ . '/includes/header.php';
         <label><?= e(__('Remark')) ?>
             <textarea name="remark" rows="3"><?= e((string) $product['remark']) ?></textarea>
         </label>
-        <button type="submit"><?= $editing ? e(__('Update Product')) : e(__('Create Product')) ?></button>
+        <div class="inline-form">
+            <button type="submit"><?= $editing ? e(__('Update Product')) : e(__('Create Product')) ?></button>
+            <?php if ($editing): ?>
+                <a class="link-btn secondary-btn" href="product_view.php?id=<?= e((string) $id) ?>"><?= e(__('Back to Detail')) ?></a>
+            <?php endif; ?>
+            <a class="link-btn" href="products.php"><?= e(__('Cancel')) ?></a>
+        </div>
     </form>
 </section>
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

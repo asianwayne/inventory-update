@@ -278,7 +278,8 @@ require_once __DIR__ . '/includes/header.php';
 
 <section class="card">
     <h2><?= e(__('Sales Order List')) ?></h2>
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
             <tr>
                 <th><?= e(__('SO No')) ?></th>
@@ -306,9 +307,9 @@ require_once __DIR__ . '/includes/header.php';
                         <td><?= e($row['creator_name']) ?></td>
                         <td>
                             <?php if (has_permission('approve_orders') && (string) $row['status'] === 'draft'): ?>
-                                <a href="sales_order_approve.php?id=<?= e((string) $row['id']) ?>"><?= e(__('Review')) ?></a>
+                                <a href="sales_order_approve.php?id=<?= e((string) $row['id']) ?>" class="view-link"><?= e(__('View')) ?></a>
                             <?php else: ?>
-                                <a href="sales_order_view.php?id=<?= e((string) $row['id']) ?>"><?= e(__('Open')) ?></a>
+                                <a href="sales_order_view.php?id=<?= e((string) $row['id']) ?>" class="view-link"><?= e(__('View')) ?></a>
                             <?php endif; ?>
                             <?php
                             $statusOptions = [
@@ -339,13 +340,16 @@ require_once __DIR__ . '/includes/header.php';
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
     <div class="pagination">
         <?php if ($page > 1): ?>
+            <a href="sales_orders.php?<?= e(so_page_query(['page' => 1])) ?>"><?= e(__('First')) ?></a>
             <a href="sales_orders.php?<?= e(so_page_query(['page' => $page - 1])) ?>"><?= e(__('Prev')) ?></a>
         <?php endif; ?>
         <span><?= e(__('Page')) ?> <?= e((string) $page) ?> <?= e(__('of')) ?> <?= e((string) $totalPages) ?></span>
         <?php if ($page < $totalPages): ?>
             <a href="sales_orders.php?<?= e(so_page_query(['page' => $page + 1])) ?>"><?= e(__('Next')) ?></a>
+            <a href="sales_orders.php?<?= e(so_page_query(['page' => $totalPages])) ?>"><?= e(__('Last')) ?></a>
         <?php endif; ?>
     </div>
 </section>

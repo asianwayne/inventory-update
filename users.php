@@ -96,7 +96,8 @@ require_once __DIR__ . '/includes/header.php';
 
 <section class="card">
     <h2><?= e(__('Existing Users')) ?></h2>
-    <table>
+    <div class="table-responsive">
+        <table>
         <thead>
             <tr>
                 <th><?= e(__('ID')) ?></th>
@@ -133,5 +134,6 @@ require_once __DIR__ . '/includes/header.php';
             <?php endwhile; ?>
         </tbody>
     </table>
+    </div>
 </section>
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

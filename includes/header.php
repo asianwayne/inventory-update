@@ -146,6 +146,10 @@ $appName = __((string) (setting('app_name', APP_NAME) ?? APP_NAME));
                     <?php endif; ?>
 
                     <div class="nav-group"><?= e(__('System')) ?></div>
+                    <a href="import.php" class="<?= basename($_SERVER['PHP_SELF']) == 'import.php' ? 'active' : '' ?>">
+                        <i class="ph-bold ph-upload"></i>
+                        <span><?= e(__('Import Data')) ?></span>
+                    </a>
                     <?php if (has_permission('manage_returns')): ?>
                         <a href="returns.php" class="<?= basename($_SERVER['PHP_SELF']) == 'returns.php' ? 'active' : '' ?>">
                             <i class="ph-bold ph-arrow-u-up-left"></i>
@@ -191,7 +195,12 @@ $appName = __((string) (setting('app_name', APP_NAME) ?? APP_NAME));
                     </button>
                     <h1 class="page-title"><?= e($title ?? $appName) ?></h1>
                     <div class="top-bar-actions">
-                        <!-- Future: Notifications, Search etc -->
+                        <form action="search.php" method="get" class="top-search-form">
+                            <div class="top-search-input">
+                                <i class="ph-bold ph-magnifying-glass"></i>
+                                <input type="text" name="q" placeholder="<?= e(__('Search...')) ?>">
+                            </div>
+                        </form>
                     </div>
                 </header>
             <?php endif; ?>
